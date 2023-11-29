@@ -1,0 +1,155 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ffffff;
+    color: rgb(101, 100, 100);
+    text-align: center;
+    padding: 20px;
+    height: 200px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.main-section {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+
+.ui-element1 {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    background: rgb(148, 147, 148);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    cursor: grab;
+}
+
+#droppable {
+    box-sizing: border-box;
+    border: 1px solid #000;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 200px;
+}
+
+#feedback { 
+    font-size: 1.4em; 
+}
+
+#selectable .ui-selecting {
+     background: #FECA40; 
+    }
+
+#selectable .ui-selected { 
+    background: #F39814; 
+    color: white; 
+}
+
+#selectable { 
+    list-style-type: 
+    none; margin: 0; 
+    padding: 0; 
+    width: 100%; 
+}
+
+#selectable li { 
+    margin: 3px; 
+    padding: 0.4em; 
+    font-size: 1.4em; 
+    height: 18px; 
+}
+
+.accordion-container {
+    width: 100%;
+}
+
+#accordion h3 {
+    background-color: #2196f3;
+    color: white;
+    cursor: pointer;
+}
+
+#accordion div {
+    background-color: #f9f9f9;
+    padding: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.toggler { 
+    width: 550px; 
+    height: 200px; 
+    position: relative; }
+
+    #button2 { 
+        padding: .8em 1em; 
+        text-decoration: none; 
+       
+    }
+
+#effect {
+     width: 240px; 
+     height: 170px; 
+     padding: 0.4em; 
+     position: relative; 
+     background: #fff; }
+
+#effect h3 { 
+    margin: 0; 
+    padding: 0.4em; 
+    text-align: center; 
+}
+
+.toggler3 { 
+    width: 500px; 
+    height: 200px; 
+}
+
+#button3 { 
+    padding: .5em 1em; 
+    text-decoration: none; 
+}
+
+#effect3 { width: 240px; 
+    height: 170px; 
+    padding: 0.4em; 
+    position: relative;
+ }
+
+#effect3 h3 { 
+    margin: 0; 
+    padding: 0.4em; 
+    text-align: center; 
+}
+
+
+
+

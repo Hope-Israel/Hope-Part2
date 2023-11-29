@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Demonstration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="styles.css"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+<script src="scripts.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>JQuery Demonstration</h1>
+    </header>
+
+    <main class="container">
+        <section class="main-section">
+            <p>Date: <input type="text" id="datepicker"></p>
+        </section>
+
+        <section class="main-section">
+            <div class="ui-element1 draggable" id="draggable">
+                <p>Drag me!</p>
+            </div>
+        </section>
+
+        <section class="main-section">
+            <div class="ui-element1 droppable" id="droppable">
+                <p>Drop me here!</p>
+            </div>
+        </section>
+
+        <section class="main-section">
+            <div id="selectable" class="ui-widget">
+                <ol>
+                    <li class="ui-state-default">Cheese</li>
+                    <li class="ui-state-default">Pickles</li>
+                    <li class="ui-state-default">Onion</li>
+                    <li class="ui-state-default">Tomato</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="main-section">
+            <div class="accordion-container">
+                <div id="accordion">
+                    <h3>Open Me</h3>
+                    <div>
+                        <p>Surprise!</p>
+                    </div>
+                    <h3>Open Me</h3>
+                    <div>
+                        <p>Happy Birthday!</p>
+                    </div>
+                    <h3>Open Me</h3>
+                    <div>
+                        <p>Merry Christmas!</p>
+                    </div>
+                    <h3>Open Me</h3>
+                    <div>
+                        <p>Howdy!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-section">
+            <form class="ui-widget">
+                <label for="tags">Tags: </label>
+                <input id="tags" name="tags" autocomplete="on">
+            </form>
+        </section>
+        
+        <section class="main-section">
+            <div id="slider"></div>
+        </section>
+        <section class="main-section">
+            <div class="ui-element ui-widget-content resizable-box" id="resizable">
+                <h3 class="ui-widget-header">Resizable</h3>
+            </div>
+        </section>
+
+        <div class="toggler">
+            <div id="effect" class="ui-widget-content ui-corner-all">
+                <h3 class="ui-widget-header ui-corner-all">Animation!</h3>
+                <p>
+                   Watch Me!
+                </p>
+            </div>
+        </div>
+
+        <button id="button2" class="ui-state-default ui-corner-all">Toggle Effect</button>
+
+        <section class="main-section">
+            <div class="toggler3">
+                <div id="effect3" class="ui-widget-content ui-corner-all">
+                    <h3 class="ui-widget-header ui-corner-all">Show</h3>
+                    <p>
+                       Test Some Effects!
+                    </p>
+                </div>
+            </div>
+
+            <select name="effects" id="effectTypes">
+                <option value="blind">Blind</option>
+                <option value="bounce">Bounce</option>
+                <option value="clip">Clip</option>
+                <option value="drop">Drop</option>
+                <option value="explode">Explode</option>
+                <option value="fade">Fade</option>
+                <option value="fold">Fold</option>
+                <option value="highlight">Highlight</option>
+                <option value="puff">Puff</option>
+                <option value="pulsate">Pulsate</option>
+                <option value="scale">Scale</option>
+                <option value="shake">Shake</option>
+                <option value="size">Size</option>
+                <option value="slide">Slide</option>
+            </select>
+
+            <button id="button3" class="ui-state-default ui-corner-all">Run Effect</button>
+        </section>
+    </main>
+ 
+
+    <footer>
+        Hope Israel 2023
+    </footer>
+
+    <script>
+       $(function () {
+    $(".draggable").draggable();
+    
+    $(".droppable").droppable({
+        drop: function (event, ui) {
+            $(this)
+                .addClass("ui-state-highlight")
+                .find("p")
+                .html("Dropped!");
+        }
+    });
+
+    var availableTags = [
+        "Russian",
+        "Chinese",
+        "Japanese",
+        "Spanish",
+        "English",
+        "Norwegian",
+        "French",
+        "German",
+    ];
+
+    $("#tags").autocomplete({
+        source: availableTags
+    });
+
+    $("#datepicker").datepicker();
+    
+    $("#selectable").selectable();
+    
+    $("#accordion").accordion();
+    
+    $("#slider").slider();
+    
+    $("#resizable").resizable();
+
+    var state = true;
+    $("#button2").on("click", function () {
+        if (state) {
+            $("#effect").animate({
+                backgroundColor: "#93c096",
+                color: "#fff",
+                width: 500
+            }, 1000);
+        } else {
+            $("#effect").animate({
+                backgroundColor: "#fff",
+                color: "#000",
+                width: 240
+            }, 1000);
+        }
+        state = !state;
+    });
+
+    function runEffect() {
+        var selectedEffect = $("#effectTypes").val();
+        var options = {};
+
+        if (selectedEffect === "scale") {
+            options = { percent: 50 };
+        } else if (selectedEffect === "size") {
+            options = { to: { width: 280, height: 185 } };
+        }
+
+        $("#effect3").show(selectedEffect, options, 500, callback);
+    }
+
+    function callback() {
+        setTimeout(function () {
+            $("#effect3:visible").removeAttr("style").fadeOut();
+        }, 1000);
+    }
+
+    $("#button3").on("click", function () {
+        runEffect();
+    });
+
+    $("#effect3").hide();
+});
+
+</script>
+</body>
+
+</html>
+
+
+
